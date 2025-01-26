@@ -1,18 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Node
-{
-public:
+ class Node{
+    public:
     int val;
-    Node *left;
-    Node *right;
+    Node*left;
+    Node*right;
     Node(int val)
     {
-        this->val = val;
-        this->left = NULL;
-        this->right = NULL;
+        this->val=val;
+        this->left=NULL;
+        this->right=NULL;
     }
-};
+ };
+
+ void preorder(Node *root)
+ {
+    if(root==NULL)
+    {
+        return;
+    }
+    cout<<  root->val  <<" ";  // root
+    preorder(root->left);     // left
+    preorder(root->right);   // right; 
+ }
 int main()
 {
     Node *root = new Node(10);
@@ -27,5 +37,7 @@ int main()
     a->left = c;
     b->left = d;
     b->right = e;
+
+    preorder(root);
     return 0;
 }
